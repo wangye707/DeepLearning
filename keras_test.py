@@ -5,7 +5,7 @@
 # @Date  : 2018/8/1
 # @Software: PyCharm
 from keras.models import Sequential
-#111
+#111111
 '''
 Keras有两种类型的模型，序贯模型（Sequential）和函数式模型（Model），函数式模型应用更为广泛，
        序贯模型是函数式模型的一种特殊情况。
