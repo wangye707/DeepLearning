@@ -43,7 +43,7 @@ model.add(Activation('softmax')) # 最后一层用softmax作为激活函数
 '''
 '''
 参数：
-optimizer：指定模型训练的优化器；
+optimizer：指定模型训练的1优化器；
 loss：目标函数；
 class_mode: ”categorical”和”binary”中的一个，只是用来计算分类的精确度或using the predict_classes method
 theano_mode: Atheano.compile.mode.Mode instance controllingspecifying compilation options 
