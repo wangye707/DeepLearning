@@ -8,7 +8,7 @@ import tensorflow as tf
 from tensorflow.examples.tutorials.mnist\
     import input_data
 mnist = input_data.read_data_sets\
-    ('C:/Users/wy/Desktop/MNIST_data/',one_hot=True)
+    ('D:\code\data\MNIST_data',one_hot=True)
 
 #每个批次的大小
 batch_size = 100

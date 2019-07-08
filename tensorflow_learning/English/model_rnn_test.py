@@ -61,7 +61,7 @@ print(ytest.shape)
 
 learning_rate = 0.001
 train_step = 1000
-batch_size = 50
+batch_size = 3
 display_step = 100
 start=time.time()
 
@@ -108,6 +108,13 @@ correct_pred=tf.equal(tf.argmax(predy,1),tf.argmax(y,1))
 accuracy=tf.reduce_mean(tf.to_float(correct_pred))
 
 grads_and_vars = optimizer.compute_gradients(loss_value)
+
+v_list = [tf.norm(tensor=v, ord=2) for _, v in grads_and_vars]
+g_list = [tf.norm(tensor=g, ord=2) if g is not None else 0.0 for g, _ in grads_and_vars ]
+v_norms = tf.stack(v_list)
+g_norms = tf.stack(g_list)
+zeds = tf.zeros_like(v_norms)
+print('zeds',zeds)
 #按batch_size划分数据集
 #Xtrains,ytrains=tf.train.batch([Xtrain,ytrain],batch_size=batch_size)
 # del
@@ -130,16 +137,20 @@ with tf.Session() as sess:
 
                     }
            # print("aaaaaaaaaaaaaaaaa")
-            _loss,__=sess.run([loss_value,grads_and_vars],feed_dict=feed)
+            _loss,__,norm,v,zzz=sess.run([loss_value,grads_and_vars,v_norms,v_list,zeds],feed_dict=feed)
             if step % display_step ==0:
 
                 acc,loss=sess.run([accuracy,loss_value],feed_dict={x:testx,y:testy})
-                print('train:',step,acc,loss)
+                print('zzz',type(zzz))
+                print('v',v)
+                print('norm',norm)
+                # print('grads_and_vars',__)
+                # print('train:',step,acc,loss)
 
             if step % display_step ==0:
 
                 acc,loss=sess.run([accuracy,loss_value],feed_dict={x:testx,y:testy})
-                print('test:',step,acc,loss)
+                # print('test:',step,acc,loss)
 
             step+=1
 end=time.time()

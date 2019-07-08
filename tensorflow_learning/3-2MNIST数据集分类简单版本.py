@@ -10,7 +10,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 # In[3]:
 
 #载入数据集
-mnist = input_data.read_data_sets("C:/Users/wy/Desktop/MNIST_data/",one_hot=True)
+mnist = input_data.read_data_sets("D:\code\data\MNIST_data",one_hot=True)
 
 #每个批次的大小
 batch_size = 100
