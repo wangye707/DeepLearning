@@ -14,4 +14,4 @@ with open(path,'w') as f:
                 ss = '0' + ss
         print(ss)
         s = 'train/images/'+ss+'.png'+' '+'train/labels/'+ss+'.png'+'\n'
-        f.write(s)
+        # f.write(s)
